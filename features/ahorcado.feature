@@ -4,6 +4,10 @@ Scenario: Mostrar pagina del juego
 	Given inicio del juego
 	Then debo ver "Ingresar letra"
 
+Scenario: Mostrar contador en 0
+	Given inicio del juego
+	Then debo ver contador en "0"
+
 Scenario: Ingresar Letra
 	Given inicio del juego
 	When ingresa letra "a"
@@ -27,11 +31,11 @@ Scenario: Mostrar pantalla Perdiste
 	Given Juego Perdido
 	Then debo ver "Perdiste"
 
-#Scenario: Mostrar pantalla fin de juego	
-#	Given inicio del juego		
-#	When ingresa letra "h"
-#	And ingresa letra "a"
-#	And ingresa letra "l"
-#	And ingresa letra "o"
-#	Then debo ver "Ganaste"
+Scenario: Mostrar pantalla fin de juego	
+	Given inicio del juego		
+	When ingresa letra "h"
+	And ingresa letra "a"
+	And ingresa letra "l"
+	And ingresa letra "o"
+	Then debo ver "Ganaste"
 

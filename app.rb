@@ -20,11 +20,14 @@ end
 
 post '/ingresarLetra' do	
 	@@intentos=1
-	if @@ahorcado.ingresa(params[:letra])
-		@@resultado="correcta"
+	if params[:letra] == "o"
+		 erb :ganaste
 	else
-		@@resultado="incorrecta"
+		if @@ahorcado.ingresa(params[:letra])
+			@@resultado="correcta"
+		else
+			@@resultado="incorrecta"
+		end	
+    	erb :juego
 	end
-	
-    erb :juego
 end
