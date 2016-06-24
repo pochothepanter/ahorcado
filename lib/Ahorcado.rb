@@ -6,11 +6,11 @@ class Ahorcado
 		@intentos=0
 	end
 	def ingresa(letra)
-		@letraCorrecta? = @palabra.include?(letra)		
-		if @letraCorrecta?
+		@letraCorrecta = @palabra.include?(letra)		
+		if @letraCorrecta
 			@intentos+= 1
 		end
-		@letraCorrecta?
+		@letraCorrecta
 	end
 	def perdiste
 		@intentos > 5
