@@ -5,14 +5,19 @@ describe Ahorcado do
 		a = Ahorcado.new("hola")
 		expect(a.palabra).to eq "hola"
 	end
-	it 'cuando ingresa una letra que esta en la plabra devuelve true' do
+	it 'cuando ingresa una letra que esta en la palabra devuelve true' do
 		a = Ahorcado.new("hola")
 		resultado=a.ingresa("h")
 		expect(resultado).to be true
 	end
-	it 'cuando ingresa una letra que no esta en la plabra devuelve false' do
+	it 'cuando ingresa una letra que no esta en la palabra devuelve false' do
 		a = Ahorcado.new("hola")
 		resultado=a.ingresa("n")
 		expect(resultado).to be false
+	end
+	it 'cuando ingresas 6 veces una letra incorrecta perdiste es true' do
+		a = Ahorcado.new("hola")
+		6.times{a.ingresa("n")}
+		expect(a.perdiste).to be true
 	end
 end
