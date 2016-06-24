@@ -11,3 +11,7 @@ When(/^ingresa letra "(.*?)"$/) do |letra|
   click_button(:confirmar)
 end
 
+Then(/^debo ver contador en "(.*?)"$/) do |count|
+  last_response.body.should =~ /<span id="contador">#{count}<\/span>/m
+end
+

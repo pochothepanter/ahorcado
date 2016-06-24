@@ -14,6 +14,13 @@ Scenario: Ingresar Letra
 	When ingresa letra "j"
 	Then debo ver "incorrecta"
 
+Scenario: Incrementar contador de intentos
+	Given inicio del juego
+	When ingresa letra "j"
+	Then debo ver contador en "1"
+
+
+
 #Scenario: Mostrar pantalla fin de juego	
 #	Given inicio del juego		
 #	When ingresa letra "h"
