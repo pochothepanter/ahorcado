@@ -1,17 +1,20 @@
 require 'sinatra'
+require './lib/Ahorcado'
 
 get '/' do
 	@@palabra="hola"
 	@@resultado=""
-	
+	@@ahorcado = Ahorcado.new(@@palabra)
     erb :juego
 	
 end
 
-post '/ingresarLetra' do
-	@@resultado="correcta"
-	if params[:letra] == "j"
+post '/ingresarLetra' do	
+	if @@ahorcado.ingresa(params[:letra])
+		@@resultado="correcta"
+	else
 		@@resultado="incorrecta"
 	end
+	
     erb :juego
 end
