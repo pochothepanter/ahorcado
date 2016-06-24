@@ -19,7 +19,13 @@ Scenario: Incrementar contador de intentos
 	When ingresa letra "j"
 	Then debo ver contador en "1"
 
+Scenario: Mostrar pantalla Ganaste	
+	Given Juego Ganado
+	Then debo ver "Ganaste"
 
+Scenario: Mostrar pantalla Perdiste
+	Given Juego Perdido
+	Then debo ver "Perdiste"
 
 #Scenario: Mostrar pantalla fin de juego	
 #	Given inicio del juego		

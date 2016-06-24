@@ -10,6 +10,14 @@ get '/' do
 	
 end
 
+get '/ganaste' do
+    erb :ganaste
+end
+
+get '/perdiste' do
+    erb :perdiste
+end
+
 post '/ingresarLetra' do	
 	@@intentos=1
 	if @@ahorcado.ingresa(params[:letra])
