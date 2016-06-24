@@ -9,6 +9,14 @@ get '/' do
 	
 end
 
+get '/ganaste' do
+    erb :ganaste
+end
+
+get '/perdiste' do
+    erb :perdiste
+end
+
 post '/ingresarLetra' do	
 	if @@ahorcado.ingresa(params[:letra])
 		@@resultado="correcta"
