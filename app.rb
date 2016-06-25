@@ -6,6 +6,7 @@ get '/' do
 	@@resultado=""
 	@@ahorcado = Ahorcado.new(@@palabra)
     @intentos=@@ahorcado.intentos
+	@@imagen=""
 	erb :juego
 	
 end

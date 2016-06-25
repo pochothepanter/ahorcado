@@ -23,6 +23,14 @@ Scenario: Incrementar contador de intentos
 	When ingresa letra "j"
 	Then debo ver contador en "1"
 
+Scenario: Ver Cabeza con 1 intento fallido
+	Given inicio del juego
+	When ingresa letra "n"
+	Then debo ver contador en "1"
+	And I should see the image "./img/1.jpg"
+
+
+
 Scenario: Mostrar pantalla Ganaste	
 	Given Juego Ganado
 	Then debo ver "Ganaste"
