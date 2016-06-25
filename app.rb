@@ -20,10 +20,12 @@ end
 
 post '/ingresarLetra' do	
 	@@intentos=1
-	if params[:letra] == "o"
+	letra = params[:letra]
+	resultado = @@ahorcado.ingresa(letra)
+	if @@ahorcado.ganaste
 		 erb :ganaste
 	else
-		if @@ahorcado.ingresa(params[:letra])
+		if resultado
 			@@resultado="correcta"
 		else
 			@@resultado="incorrecta"

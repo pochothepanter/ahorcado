@@ -20,4 +20,34 @@ describe Ahorcado do
 		6.times{a.ingresa("n")}
 		expect(a.perdiste).to be true
 	end
+	it 'cuando la palabra es a ingresa a' do
+		a = Ahorcado.new("a")
+		a.ingresa("a")
+		expect(a.ganaste).to be true
+	end
+	it 'cuando la palabra es aa ingresa ab' do
+		a = Ahorcado.new("ab")
+		a.ingresa("a")
+		a.ingresa("b")
+		expect(a.ganaste).to be true
+	end
+	it 'cuando la palabra es aba ingresa ab' do
+		a = Ahorcado.new("aba")
+		a.ingresa("a")
+		a.ingresa("b")
+		expect(a.ganaste).to be true
+	end
+	it 'cuando la palabra es aba ingresa aba' do
+		a = Ahorcado.new("aba")
+		a.ingresa("a")
+		a.ingresa("b")
+		a.ingresa("a")
+		expect(a.ganaste).to be true
+	end
+	it 'cuando la palabra es Aba ingresa ab' do
+		a = Ahorcado.new("Aba")
+		a.ingresa("a")
+		a.ingresa("b")
+		expect(a.ganaste).to be true
+	end
 end
