@@ -25,6 +25,7 @@ post '/ingresarLetra' do
 	
 	letra = params[:letra]
 	esCorrecta = @@ahorcado.ingresa(letra)
+	@@imagen = @@ahorcado.intentos
 	if @@ahorcado.ganaste
 		 erb :ganaste
 	else
@@ -38,7 +39,7 @@ post '/ingresarLetra' do
 				
 			end  
 		end
-		@@imagen = @@ahorcado.intentos
+		
 		@intentos=@@ahorcado.intentos
 		@estadoPalabra = @@ahorcado.estadoPalabra
  	    erb :juego
