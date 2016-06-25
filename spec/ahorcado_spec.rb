@@ -20,4 +20,8 @@ describe Ahorcado do
 		6.times{a.ingresa("n")}
 		expect(a.perdiste).to be true
 	end
+	it 'Mostrar estado de la palabra vacio (array de la long de la palabra)' do
+		a = Ahorcado.new("hola")
+		expect(a.estadoPalabra).to eq [nil,nil,nil,nil]
+	end
 end

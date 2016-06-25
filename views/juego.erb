@@ -1,6 +1,9 @@
 <%=@@resultado %>
 Ingresar letra
 Intento: <span id="contador"><%=@intentos %></span>
+<p>
+<% @estadoPalabra.each do |v| %><%= v == nil ? "_ " : v + " " %><% end %>
+</p>
 
 <form method="post" action="ingresarLetra">
 	<input type="text" name="letra" id="letra"/>
