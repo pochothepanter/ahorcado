@@ -4,9 +4,9 @@ require './lib/Ahorcado'
 get '/' do
 	@@palabra="hola"
 	@@resultado=""
-	@@intentos=0
 	@@ahorcado = Ahorcado.new(@@palabra)
-    erb :juego
+    @intentos=@@ahorcado.intentos
+	erb :juego
 	
 end
 
@@ -19,17 +19,24 @@ get '/perdiste' do
 end
 
 post '/ingresarLetra' do	
+
 	@@intentos=1
 	letra = params[:letra]
 	resultado = @@ahorcado.ingresa(letra)
 	if @@ahorcado.ganaste
+
 		 erb :ganaste
 	else
 		if resultado
 			@@resultado="correcta"
 		else
-			@@resultado="incorrecta"
-		end	
-    	erb :juego
+			if @@ahorcado.perdiste
+				return erb :perdiste
+			else
+				@@resultado="incorrecta"
+			end	   
+		end
+		@intentos=@@ahorcado.intentos
+ 	    erb :juego
 	end
 end

@@ -6,6 +6,7 @@ class Ahorcado
 		@intentos=0
 		@indicesAcertados=[]
 	end
+
 	def ingresa(letra)
 		@letraCorrecta = @palabra.include?(letra)	
 		if @letraCorrecta
@@ -15,6 +16,7 @@ class Ahorcado
 		end
 		@letraCorrecta
 	end
+
 	def buscarIndicesEncontrado(letra)
 		indicesEncontrados = (0 ... @palabra.length).find_all { |i| @palabra[i,1].upcase == letra.upcase }
 		if (@indicesAcertados & indicesEncontrados).empty?			
@@ -22,6 +24,12 @@ class Ahorcado
 			@indicesAcertados.flatten!
 		end
 	end
+
+
+	def intentos
+		@intentos
+	end
+
 	def perdiste
 		@intentos > 5
 	end
