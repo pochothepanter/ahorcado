@@ -20,10 +20,15 @@ get '/perdiste' do
 end
 
 post '/ingresarLetra' do	
-	if params[:letra] == "o"
+
+	@@intentos=1
+	letra = params[:letra]
+	resultado = @@ahorcado.ingresa(letra)
+	if @@ahorcado.ganaste
+
 		 erb :ganaste
 	else
-		if @@ahorcado.ingresa(params[:letra])
+		if resultado
 			@@resultado="correcta"
 		else
 			if @@ahorcado.perdiste
