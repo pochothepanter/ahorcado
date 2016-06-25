@@ -6,24 +6,26 @@ class Ahorcado
 		@estadoPalabra = []
 		@intentos=0
 		@palabra.length.times {@estadoPalabra.push(nil)}
-		@indicesAcertados=[]
 	end
 
 	def ingresa(letra)
 		@letraCorrecta = @palabra.include?(letra)	
 		if @letraCorrecta
-			buscarIndicesEncontrado(letra)
+			completarPalabra(letra)
 		else
 			@intentos+= 1
 		end
 		@letraCorrecta
 	end
 
-	def buscarIndicesEncontrado(letra)
-		indicesEncontrados = (0 ... @palabra.length).find_all { |i| @palabra[i,1].upcase == letra.upcase }
-		if (@indicesAcertados & indicesEncontrados).empty?			
-			@indicesAcertados << indicesEncontrados
-			@indicesAcertados.flatten!
+	def completarPalabra(letra)
+		i=0
+		@palabra.each_char do
+			|letraPalabra|
+			if letra.upcase == letraPalabra.upcase
+				@estadoPalabra[i] = letra.upcase
+			end
+			i = i + 1
 		end
 	end
 
@@ -41,6 +43,12 @@ class Ahorcado
 	end
 
 	def ganaste
-		@indicesAcertados.length == @palabra.length
+		@estadoPalabra.each do
+			|letra|
+			if nil == letra
+				return false
+			end
+		end
+		return true
 	end
 end
