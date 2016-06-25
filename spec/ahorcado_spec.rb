@@ -63,4 +63,16 @@ describe Ahorcado do
 		a.ingresa("b")
 		expect(a.ganaste).to be true
 	end
+	
+	it 'cuando la palabra es nhnaxpl intentos 5' do
+		a = Ahorcado.new("hola")
+		a.ingresa("n")
+		a.ingresa("h")
+		a.ingresa("n")
+		a.ingresa("a")
+		a.ingresa("x")
+		a.ingresa("p")
+		a.ingresa("v")
+		expect(a.intentos).to eq 5
+	end
 end
