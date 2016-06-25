@@ -7,6 +7,7 @@ get '/' do
 	@@ahorcado = Ahorcado.new(@@palabra)
     @intentos=@@ahorcado.intentos
 	@@imagen=""
+	@estadoPalabra = @@ahorcado.estadoPalabra
 	erb :juego
 	
 end
@@ -38,6 +39,7 @@ post '/ingresarLetra' do
 			end	   
 		end
 		@intentos=@@ahorcado.intentos
+		@estadoPalabra = @@ahorcado.estadoPalabra
  	    erb :juego
 	end
 end

@@ -3,7 +3,9 @@ class Ahorcado
 
 	def initialize(palabra)
 		@palabra=palabra
+		@estadoPalabra = []
 		@intentos=0
+		@palabra.length.times {@estadoPalabra.push(nil)}
 		@indicesAcertados=[]
 	end
 
@@ -32,6 +34,10 @@ class Ahorcado
 
 	def perdiste
 		@intentos > 5
+	end
+
+	def estadoPalabra
+		@estadoPalabra
 	end
 
 	def ganaste

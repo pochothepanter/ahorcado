@@ -2,6 +2,10 @@
 Ingresar letra
 Intentos Fallidos: <span id="contador"><%=@intentos %></span>
 <img src="./img/1.jpg" />
+<p>
+<% @estadoPalabra.each do |v| %><%= v == nil ? "_ " : v + " " %><% end %>
+</p>
+
 <form method="post" action="ingresarLetra">
 	<input type="text" name="letra" id="letra"/>
 	<input type="submit" name="confirmar" value="confirmar" />

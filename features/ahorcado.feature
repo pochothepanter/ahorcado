@@ -55,7 +55,10 @@ Scenario: Mostrar pantalla fin de juego	perdiendo
 	And ingresa letra "p"
 	And ingresa letra "f"
 	And ingresa letra "m"
-
 	Then debo ver "Perdiste"
+
+Scenario: Estado inicial de palabra
+	Given inicio del juego
+	Then debo ver "_ _ _ _"
 
 
