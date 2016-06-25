@@ -1,5 +1,5 @@
 class Ahorcado
-	attr_accessor :palabra
+	attr_accessor :palabra, :intentos
 
 	def initialize(palabra)
 		@palabra=palabra
@@ -10,13 +10,13 @@ class Ahorcado
 	end
 
 	def ingresa(letra)
-		@letraCorrecta = @palabra.include?(letra)	
-		if @letraCorrecta
+		letraCorrecta = @palabra.include?(letra)	
+		if letraCorrecta
 			buscarIndicesEncontrado(letra)
 		else
 			@intentos+= 1
 		end
-		@letraCorrecta
+		letraCorrecta
 	end
 
 	def buscarIndicesEncontrado(letra)
@@ -27,10 +27,6 @@ class Ahorcado
 		end
 	end
 
-
-	def intentos
-		@intentos
-	end
 
 	def perdiste
 		@intentos > 5

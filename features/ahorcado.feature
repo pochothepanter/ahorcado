@@ -3,6 +3,7 @@ Feature: Pagina del juego
 Scenario: Mostrar pagina del juego
 	Given inicio del juego
 	Then debo ver "Ingresar letra"
+	And debo ver horca
 
 Scenario: Mostrar contador en 0
 	Given inicio del juego
@@ -27,9 +28,36 @@ Scenario: Ver Cabeza con 1 intento fallido
 	Given inicio del juego
 	When ingresa letra "n"
 	Then debo ver contador en "1"
-	And I should see the image "./img/1.jpg"
+	And debo ver cabeza
 
+Scenario: Ver Cabeza con 2 intentos fallidos
+	Given inicio del juego
+	When ingresa letra "n"
+	And ingresa letra "n"
+	Then debo ver contador en "2"
+	And debo ver cuerpo
 
+Scenario: Ver Cabeza con 4 intentos fallidos
+	Given inicio del juego
+	When ingresa letra "n"
+	And ingresa letra "n"
+	And ingresa letra "a"
+	And ingresa letra "x"
+	And ingresa letra "p"
+	Then debo ver contador en "4"
+	And debo ver brazo dos
+
+Scenario: Ver Cabeza con 5 intentos fallidos
+	Given inicio del juego
+	When ingresa letra "n"
+	And ingresa letra "h"
+	And ingresa letra "n"
+	And ingresa letra "a"
+	And ingresa letra "x"
+	And ingresa letra "p"
+	And ingresa letra "v"
+	Then debo ver contador en "5"
+	And debo ver pierna uno
 
 Scenario: Mostrar pantalla Ganaste	
 	Given Juego Ganado
@@ -38,6 +66,7 @@ Scenario: Mostrar pantalla Ganaste
 Scenario: Mostrar pantalla Perdiste
 	Given Juego Perdido
 	Then debo ver "Perdiste"
+	And debo ver pierna dos
 
 Scenario: Mostrar pantalla fin de juego	
 	Given inicio del juego		

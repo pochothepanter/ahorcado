@@ -6,7 +6,7 @@ get '/' do
 	@@resultado=""
 	@@ahorcado = Ahorcado.new(@@palabra)
     @intentos=@@ahorcado.intentos
-	@@imagen=""
+	@@imagen=0
 	@estadoPalabra = @@ahorcado.estadoPalabra
 	erb :juego
 	
@@ -17,27 +17,28 @@ get '/ganaste' do
 end
 
 get '/perdiste' do
+	@@imagen=6
     erb :perdiste
 end
 
 post '/ingresarLetra' do	
-
-	@@intentos=1
+	
 	letra = params[:letra]
-	resultado = @@ahorcado.ingresa(letra)
+	esCorrecta = @@ahorcado.ingresa(letra)
 	if @@ahorcado.ganaste
-
 		 erb :ganaste
 	else
-		if resultado
+		if esCorrecta
 			@@resultado="correcta"
 		else
 			if @@ahorcado.perdiste
 				return erb :perdiste
 			else
 				@@resultado="incorrecta"
-			end	   
+				
+			end  
 		end
+		@@imagen = @@ahorcado.intentos
 		@intentos=@@ahorcado.intentos
 		@estadoPalabra = @@ahorcado.estadoPalabra
  	    erb :juego
