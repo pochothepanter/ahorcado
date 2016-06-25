@@ -5,6 +5,7 @@ class Ahorcado
 		@palabra=palabra
 		@intentos=0
 	end
+
 	def ingresa(letra)
 		@letraCorrecta = @palabra.include?(letra)		
 		if @letraCorrecta == false
@@ -12,6 +13,11 @@ class Ahorcado
 		end
 		@letraCorrecta
 	end
+
+	def intentos
+		@intentos
+	end
+
 	def perdiste
 		@intentos > 5
 	end

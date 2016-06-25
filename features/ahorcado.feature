@@ -39,3 +39,15 @@ Scenario: Mostrar pantalla fin de juego
 	And ingresa letra "o"
 	Then debo ver "Ganaste"
 
+Scenario: Mostrar pantalla fin de juego	perdiendo
+	Given inicio del juego		
+	When ingresa letra "n"
+	And ingresa letra "j"
+	And ingresa letra "t"
+	And ingresa letra "p"
+	And ingresa letra "f"
+	And ingresa letra "m"
+
+	Then debo ver "Perdiste"
+
+
