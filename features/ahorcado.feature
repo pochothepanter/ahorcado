@@ -85,6 +85,7 @@ Scenario: Mostrar pantalla fin de juego	perdiendo
 	And ingresa letra "f"
 	And ingresa letra "m"
 	Then debo ver "Perdiste"
+	And debo ver pierna dos
 
 Scenario: Estado inicial de palabra
 	Given inicio del juego
